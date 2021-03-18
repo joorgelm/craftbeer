@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
@@ -23,8 +25,9 @@ public class Beer {
     * */
 
     @Id
-    @Column(name = "beer_id") // usar uuid
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "beer_id")
+    private long id;
 
     @Column(name = "beer_name")
     private String name;
@@ -38,7 +41,7 @@ public class Beer {
     @Column(name = "beer_price")
     private BigDecimal price;
 
-    // todo: transformar em um enum
+    // todo: transformar em um enum ou criar um endpoint para categorias
     @Column(name = "beer_category")
     private String category;
 }

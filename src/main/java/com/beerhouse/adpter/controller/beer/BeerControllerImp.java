@@ -1,6 +1,6 @@
 package com.beerhouse.adpter.controller.beer;
 
-import com.beerhouse.domain.usecase.DeleteBeerUseCase;
+import com.beerhouse.domain.usecase.delete.DeleteBeerUseCase;
 import com.beerhouse.domain.usecase.create.CreateBeerUseCase;
 import com.beerhouse.domain.usecase.create.CreateBeerUseCaseInput;
 import com.beerhouse.domain.usecase.create.CreateBeerUseCaseOutput;
