@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 
-ARG JAR_FILE=target/licitacoes-api-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/craft-beer-1.0.0-SNAPSHOT.jar
 
 WORKDIR /opt/app
 
