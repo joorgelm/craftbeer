@@ -2,26 +2,26 @@ version: '3'
 
 services:
 
-  api:
-    build:
-      context: ./craftbeer
-      dockerfile: Dockerfile
-    image: jorgem/craftbeer
-    container_name: craftbeer
-    env_file:
-      - .env
-    command: java -jar app.jar
-    volumes:
-      - ./craftbeer/src:/craftbeer/src
-    ports:
-      - 9000:9000
-    expose:
-      - 9000
-    depends_on:
-      - postgresql
+#  api:
+#    build:
+#      context: ./craftbeer
+#      dockerfile: Dockerfile
+#    image: jorgem/craftbeer
+#    container_name: craftbeer
+#    env_file:
+#      - .env
+#    command: java -jar app.jar
+#    volumes:
+#      - ./craftbeer/src:/craftbeer/src
+#    ports:
+#      - 9000:9000
+#    expose:
+#      - 9000
+#    depends_on:
+#      - postgresql
 
   postgresql:
-    container_name: licitacoes-database
+    container_name: beerhouse-database
     image: postgres:12.2-alpine
     env_file:
       - .env
