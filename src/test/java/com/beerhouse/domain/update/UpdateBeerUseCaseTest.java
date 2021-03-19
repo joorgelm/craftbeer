@@ -34,7 +34,7 @@ public class UpdateBeerUseCaseTest {
 
     private Beer mockBeer;
 
-    private UpdateBeerUseCase createUseCase() {
+    private UpdateBeerUseCase buildUseCase() {
         return UpdateBeerUseCase
                 .builder()
                 .beerRepository(beerRepository)
@@ -62,7 +62,7 @@ public class UpdateBeerUseCaseTest {
                         Optional.of(mockBeer)
                 );
 
-        updateBeerUseCase = createUseCase();
+        updateBeerUseCase = buildUseCase();
     }
 
     @After

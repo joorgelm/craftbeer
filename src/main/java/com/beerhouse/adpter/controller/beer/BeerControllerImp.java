@@ -4,6 +4,8 @@ import com.beerhouse.domain.usecase.create.CreateBeerUseCase;
 import com.beerhouse.domain.usecase.create.CreateBeerUseCaseInput;
 import com.beerhouse.domain.usecase.create.CreateBeerUseCaseOutput;
 import com.beerhouse.domain.usecase.delete.DeleteBeerUseCase;
+import com.beerhouse.domain.usecase.get.GetBeerUseCase;
+import com.beerhouse.domain.usecase.get.GetBeerUseCaseOutput;
 import com.beerhouse.domain.usecase.update.UpdateBeerUseCase;
 import com.beerhouse.domain.usecase.update.UpdateBeerUseCaseInput;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ import org.springframework.stereotype.Controller;
 public class BeerControllerImp implements BeerController {
 
     @Autowired
+    private GetBeerUseCase getBeerUseCase;
+
+    @Autowired
     private CreateBeerUseCase createBeerUseCase;
 
     @Autowired
@@ -22,6 +27,13 @@ public class BeerControllerImp implements BeerController {
 
     @Autowired
     private DeleteBeerUseCase deleteBeerUseCase;
+
+    @Override
+    public ResponseEntity<GetBeerUseCaseOutput> get(Long beerId) {
+        GetBeerUseCaseOutput output = getBeerUseCase.get(beerId);
+
+        return new ResponseEntity<>(output, HttpStatus.OK);
+    }
 
     @Override
     public ResponseEntity<CreateBeerUseCaseOutput> create(CreateBeerUseCaseInput createBeerInput) {

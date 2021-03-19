@@ -89,6 +89,23 @@ Dica: Copie e cole o conteúdo do arquivo acima no [Swagger Editor](https://edit
 
 ## Seção reservada para que você descreva brevemente como executar o seu projeto
 
-Pode ser algo simples, como executar o arquivo Application.java. Ou talvez tenha alguma dependência como base de dados, por exemplo.
+Para subir o projeto em um sistema operacional unix
+é necessário:
 
-TODO
+ * docker
+ * docker-compose
+ * Maven
+
+ * permissões para que o docker seja executado sem sudo
+
+instruções:
+
+ * Abra o terminal e entre na raiz do projeto (ex: /craftbeer)
+
+ * execute o comando 
+
+        bash iniciar.sh
+
+Coleção do postman para testes: https://www.getpostman.com/collections/309777047abab5747b1f
+
+A coleção pode ser importada em __File > Import > Link__

@@ -41,7 +41,6 @@ public class Beer {
     @Column(name = "beer_price")
     private BigDecimal price;
 
-    // todo: transformar em um enum ou criar um endpoint para categorias
     @Column(name = "beer_category")
     private String category;
 }

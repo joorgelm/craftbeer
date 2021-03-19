@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 @Builder
 @Data
 public class CreateBeerUseCaseOutput {
-    private long id;
+    private Long id;
     private String name;
     private String ingredients;
     private String alcoholContent;

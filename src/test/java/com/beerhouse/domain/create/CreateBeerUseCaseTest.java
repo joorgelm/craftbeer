@@ -32,7 +32,7 @@ public class CreateBeerUseCaseTest {
     private static final String ALCOHOL_CONTENT = "10%";
     private static final String CATEGORY = "category-test";
     private static final BigDecimal PRICE = BigDecimal.valueOf(100L);
-    private static final long ID = 10L;
+    private static final Long ID = 10L;
 
     private Beer createBeer() {
         return Beer.builder()
@@ -45,7 +45,7 @@ public class CreateBeerUseCaseTest {
                 .build();
     }
 
-    private CreateBeerUseCase createUseCase() {
+    private CreateBeerUseCase buildUseCase() {
         return CreateBeerUseCase
                 .builder()
                 .beerRepository(beerRepository)
@@ -59,7 +59,7 @@ public class CreateBeerUseCaseTest {
         when(beerRepository.save(any(Beer.class)))
                 .thenReturn(createBeer());
 
-        createBeerUseCase = createUseCase();
+        createBeerUseCase = buildUseCase();
     }
 
     @After

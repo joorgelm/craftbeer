@@ -58,8 +58,8 @@ public class UpdateBeerUseCase {
         Validator.of(input)
                 .validate(UpdateBeerUseCaseInput::getName, Objects::nonNull, "Nome não informado")
                 .validate(UpdateBeerUseCaseInput::getAlcoholContent, Objects::nonNull, "Teor alcoolico não informado")
-                .validate(UpdateBeerUseCaseInput::getCategory, Objects::nonNull, "Categoria não informado")
-                .validate(UpdateBeerUseCaseInput::getIngredients, Objects::nonNull, "Ingredientes não informado")
-                .validate(UpdateBeerUseCaseInput::getPrice, Objects::nonNull, "Preco não informado");
+                .validate(UpdateBeerUseCaseInput::getCategory, Objects::nonNull, "Categoria não informada")
+                .validate(UpdateBeerUseCaseInput::getIngredients, Objects::nonNull, "Ingredientes não informados")
+                .validate(UpdateBeerUseCaseInput::getPrice, Objects::nonNull, "Preço não informado");
     }
 }
