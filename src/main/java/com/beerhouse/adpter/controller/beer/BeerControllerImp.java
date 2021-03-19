@@ -1,15 +1,17 @@
 package com.beerhouse.adpter.controller.beer;
 
-import com.beerhouse.domain.usecase.delete.DeleteBeerUseCase;
 import com.beerhouse.domain.usecase.create.CreateBeerUseCase;
 import com.beerhouse.domain.usecase.create.CreateBeerUseCaseInput;
 import com.beerhouse.domain.usecase.create.CreateBeerUseCaseOutput;
+import com.beerhouse.domain.usecase.delete.DeleteBeerUseCase;
 import com.beerhouse.domain.usecase.update.UpdateBeerUseCase;
 import com.beerhouse.domain.usecase.update.UpdateBeerUseCaseInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class BeerControllerImp implements BeerController {
 
     @Autowired
@@ -29,12 +31,14 @@ public class BeerControllerImp implements BeerController {
 
     @Override
     public ResponseEntity<Void> update(Long beerId, UpdateBeerUseCaseInput updateBeerInput) {
+        updateBeerInput.setId(beerId);
         updateBeerUseCase.update(updateBeerInput);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT); //verificar status code correto
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @Override
     public ResponseEntity<Void> updateAll(Long beerId, UpdateBeerUseCaseInput updateBeerInput) {
+        updateBeerInput.setId(beerId);
         updateBeerUseCase.updateAll(updateBeerInput);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
@@ -42,6 +46,6 @@ public class BeerControllerImp implements BeerController {
     @Override
     public ResponseEntity<Void> delete(Long beerId) {
         deleteBeerUseCase.execute(beerId);
-        return null;
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

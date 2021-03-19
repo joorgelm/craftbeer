@@ -4,6 +4,7 @@ import com.beerhouse.domain.usecase.create.CreateBeerUseCaseInput;
 import com.beerhouse.domain.usecase.create.CreateBeerUseCaseOutput;
 import com.beerhouse.domain.usecase.update.UpdateBeerUseCaseInput;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,9 @@ public interface BeerController {
 
     @PostMapping
     @ResponseBody
-    ResponseEntity<CreateBeerUseCaseOutput> create (@RequestBody CreateBeerUseCaseInput createBeerInput);
+    ResponseEntity<CreateBeerUseCaseOutput> create (
+            @RequestBody CreateBeerUseCaseInput createBeerInput
+    );
 
     @PatchMapping("/{beerId}")
     ResponseEntity<Void> update (
@@ -31,7 +34,7 @@ public interface BeerController {
             @RequestBody UpdateBeerUseCaseInput updateBeerInput
     );
 
-    @PutMapping("/{beerId}")
+    @DeleteMapping("/{beerId}")
     ResponseEntity<Void> delete (
             @PathVariable("beerId") Long beerId
     );

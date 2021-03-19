@@ -25,7 +25,7 @@ public class Beer {
     * */
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_tb_beer")
     @Column(name = "beer_id")
     private long id;
 
@@ -35,7 +35,7 @@ public class Beer {
     @Column(name = "beer_ingredients")
     private String ingredients;
 
-    @Column(name = "beer_alcoholContent")
+    @Column(name = "beer_alcohol_content")
     private String alcoholContent;
 
     @Column(name = "beer_price")
