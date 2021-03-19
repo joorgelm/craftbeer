@@ -26,7 +26,7 @@ public interface BeerController {
     ResponseEntity<Void> update (
             @PathVariable("beerId") Long beerId,
             @RequestBody UpdateBeerUseCaseInput updateBeerInput
-    );
+    ) throws IllegalAccessException;
 
     @PutMapping("/{beerId}")
     ResponseEntity<Void> updateAll (

@@ -13,12 +13,22 @@ import java.util.Optional;
 public class UpdateBeerUseCase {
     private BeerRepository beerRepository;
 
-    public void update(UpdateBeerUseCaseInput input) {
+    public void update(long id, UpdateBeerUseCaseInput input) throws IllegalAccessException {
+
+        partialValidate(input);
+
+        input.setId(id);
+
         Beer beerToUpdate = getBeer(input);
 
         update(input, beerToUpdate);
 
         beerRepository.save(beerToUpdate);
+    }
+
+    private void partialValidate(UpdateBeerUseCaseInput input) throws IllegalAccessException {
+        if (input.checkNull())
+            throw new IllegalStateException("Nenhuma informação válida");
     }
 
     private static void update(UpdateBeerUseCaseInput input, Beer beerToUpdate) {
@@ -34,7 +44,6 @@ public class UpdateBeerUseCase {
                 .orElseThrow(() -> new EntityNotFoundException("Cerveja não encontrada"));
     }
 
-    //todo: talvez separar uma classe
     public void updateAll(UpdateBeerUseCaseInput input) {
         validate(input);
 

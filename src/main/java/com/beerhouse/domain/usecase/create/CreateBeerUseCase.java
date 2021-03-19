@@ -18,7 +18,7 @@ public class CreateBeerUseCase {
 
         Beer createdBeer = createBeer(createBeerInput);
 
-        beerRepository.save(createdBeer);
+        createdBeer = beerRepository.save(createdBeer);
 
         return toOutput(createdBeer);
     }

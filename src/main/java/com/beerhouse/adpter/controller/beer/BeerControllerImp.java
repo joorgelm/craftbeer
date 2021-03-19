@@ -30,9 +30,8 @@ public class BeerControllerImp implements BeerController {
     }
 
     @Override
-    public ResponseEntity<Void> update(Long beerId, UpdateBeerUseCaseInput updateBeerInput) {
-        updateBeerInput.setId(beerId);
-        updateBeerUseCase.update(updateBeerInput);
+    public ResponseEntity<Void> update(Long beerId, UpdateBeerUseCaseInput updateBeerInput) throws IllegalAccessException {
+        updateBeerUseCase.update(beerId, updateBeerInput);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
