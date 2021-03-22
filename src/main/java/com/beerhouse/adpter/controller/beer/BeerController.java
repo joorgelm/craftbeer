@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value = "beers")
 public interface BeerController {
 
-    @GetMapping({"/", "/{beerId}"})
+    @GetMapping({"", "/", "/{beerId}"})
     ResponseEntity<GetBeerUseCaseOutput> get (
             @PathVariable(name = "beerId", required = false) Long beerId
     );
